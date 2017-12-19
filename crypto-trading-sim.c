@@ -34,11 +34,12 @@ int main(int argc, char* argv[]){
 	double coin1;
 	scanf("%lf", &coin1);
 
-	printf("You can profit if you sell at rate \t> %lf (x%.4lf)\n", j, j/buyrate);
+	printf("You can profit if you sell at rate \t > %lf (x%.4lf)\n", j, j/buyrate);
 	printf("What %% profit do you want: ");
-	double percentage_profit;
-	scanf("%lf", &percentage_profit);
-	printf("For >=%.2lf%% profit you sell at rate  \t>= %lf (x%.4lf)\n\n\n", percentage_profit, buyrate*1.02 / fees_mult, (100.0+percentage_profit)/(100.0*fees_mult));
+	double perc_prof;
+	scanf("%lf", &perc_prof);
+	double mult_prof = perc_prof/100.0 + 1.0;
+	printf("For >=%.2lf%% profit you sell at rate  \t>= %lf (x%.4lf)\n\n\n", perc_prof, buyrate*mult_prof/fees_mult, mult_prof/fees_mult);
 	while (1) {
 		printf("Current rate: ");
 		double sellrate;
